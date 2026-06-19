@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="toast" class="toast"></div>
+  <div class="container">
+
+    <h1>Student Expense Tracker</h1>
+
+    <!-- Add Expense Form -->
+    <div class="form-section">
+      <h2>Add Expense</h2>
+      <input type="text" id="title" placeholder="Title (e.g. Lunch)" />
+      <input type="number" id="amount" placeholder="Amount (e.g. 120)" />
+      <input type="text" id="category" placeholder="Category (e.g. Food)" />
+      <input type="date" id="date" />
+      <button id="addBtn">Add Expense</button>
+    </div>
+
+    <!-- Total -->
+    <div class="total-section">
+      <h2>Total Spent: ₹<span id="total">0</span></h2>
+    </div>
+
+    <!-- Expense List -->
+    <div class="list-section">
+      <h2>All Expenses</h2>
+
+      <div class="filter-bar">
+        <label for="categoryFilter">Filter by category:</label>
+        <select id="categoryFilter">
+          <option value="all">All</option>
+          <option value="Food">Food</option>
+          <option value="Transport">Transport</option>
+          <option value="Books">Books</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="expenseList">
+          <!-- Expenses load here dynamically -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div id="topBar" style="display:none; text-align:right; margin-bottom:10px" ;>
+    Welcome, <strong id="welcomeUser"></strong> |
+    <a href="#" id="logoutBtn">Logout</a>
+  </div>
+
+  <script src="ap.js"></script>
+</body>
+
+</html>

@@ -1,12 +1,25 @@
 const express = require('express');
+const session = require('express-session');
 const app = express();
 
 app.use(express.json());
+app.use(express.static('public'));
+
+//session setup 
+app.use(session({
+    secret: 'expense_tracker_secret', //in production based this should be in your env file
+    resave: false,
+    saveUninitialized: false,
+    cookie: {maxAge: 1000*60*60*24}
+}));
 
 const db = require('./db');
 
 const expenseRoutes = require('./routes/expenses');
 app.use('/expenses', expenseRoutes);
+
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {
