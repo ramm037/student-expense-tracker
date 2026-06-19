@@ -7,7 +7,7 @@ app.use(express.static('public'));
 
 //session setup 
 app.use(session({
-    secret: 'expense_tracker_secret', //in production based this should be in your env file
+    secret: process.env.SESSION_SECRET || 'expense_tracker_secret', //in production based this should be in your env file
     resave: false,
     saveUninitialized: false,
     cookie: {maxAge: 1000*60*60*24}
@@ -21,7 +21,7 @@ app.use('/expenses', expenseRoutes);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on PORT ${PORT}`);
 });
