@@ -1,0 +1,17 @@
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE expenses (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(100),
+  amount DECIMAL(10,2),
+  category VARCHAR(50),
+  date DATE,
+  user_id INT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
