@@ -303,3 +303,11 @@ tbody tr:hover {
     text-align: centre;
   }
 }
+
+body {
+  visibility: hidden;
+}
+
+body.ready {
+  visibility: visible;
+}

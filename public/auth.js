@@ -1,5 +1,7 @@
 const API = window.location.origin;
 
+document.body.classList.add('ready');
+
 function showToast(message, type = "success") {
   const toast = document.getElementById('toast');
   toast.className = 'toast'

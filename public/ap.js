@@ -30,6 +30,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
+  //Only show the page now that we know the user is logged in
+  document.body.classList.add('ready');
+
+  document.getElementById('topBar').style.display = 'block';
+  document.getElementById('welcomeUser').textContent = authData.username;
+
+
   //show welcome bar
   document.getElementById('topBar').style.display = 'block';
   document.getElementById('welcomeUser').textContent = authData.username;
