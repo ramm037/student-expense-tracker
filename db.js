@@ -18,12 +18,13 @@ const db = mysql.createPool({
     keepAliveInitialDelay:10000
 });
 
-db.connect((err) => {
+db.getConnection((err, connection) => {
     if (err) {
         console.error('Database connection failed', err.message);
         return;
     }
     console.log('Connected to Aiven MySQL database');
+    connection.release();
     });
 
 
