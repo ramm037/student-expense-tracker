@@ -17,12 +17,12 @@ const db = require('./db');
 
 //Keep database connection alive
 setInterval(() => {
-    db.query('SELECT 1', (err) =>{
-        if(err){
-            console.error('Keep alivr ping failed:', err.message);
-        }
-    },4*60*1000); //every 4 minutes
-})
+  db.query('SELECT 1', (err) => {
+    if (err) {
+      console.error('Keep alive ping failed:', err.message);
+    }
+  });
+}, 4 * 60 * 1000); // every 4 minutes
 
 const expenseRoutes = require('./routes/expenses');
 app.use('/expenses', expenseRoutes);
